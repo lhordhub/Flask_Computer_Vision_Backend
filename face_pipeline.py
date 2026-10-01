@@ -26,7 +26,7 @@ MAX_IMAGE_SIDE = 800
 
 # Same scoring settings as verify_face_haar.py
 MIN_REL_TOLERANCE = 0.05   # smallest allowed spread = 5% of the reference mean
-MATCH_THRESHOLD = 3.0      # average deviation allowed for "MY FACE"
+MATCH_THRESHOLD = 2.5    # average deviation allowed for "MY FACE"
 MIN_SAMPLES = 2
 
 SCALAR_KEYS = ["mean_intensity", "std_intensity", "edge_density"]

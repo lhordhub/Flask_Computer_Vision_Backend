@@ -1,29 +1,3 @@
-"""
-app.py
-
-Flask backend for the Edge-Detection Face Verification mobile app.
-
-Endpoints
-  GET  /api/health    -> {"status": "ok"}  (used to wake the server up)
-  POST /api/register  -> multipart, field "photos" (2+ images)
-                         returns {"reference": {...}, "num_used": N, "skipped": [...]}
-  POST /api/verify    -> multipart, field "photo" (1 image) and
-                         field "reference" (the JSON returned by /register)
-                         returns {"face_detected": bool, "match": bool,
-                                  "score": float, "threshold": float,
-                                  "per_feature": {...},
-                                  "edge_image": <base64 png>,
-                                  "gradient_image": <base64 png>}
-
-The server is STATELESS on purpose: it does not save your reference.
-Render's free plan wipes local files whenever the service restarts or
-spins down, so the app keeps the reference on the phone and sends it
-with every /verify call.
-
-Optional protection: set an API_KEY environment variable and the app must
-send the same value in an "X-API-Key" header (health check stays public).
-"""
-
 import hmac
 import json
 import os
